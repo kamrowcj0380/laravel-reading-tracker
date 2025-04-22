@@ -38,7 +38,7 @@ header {
 
 footer {
     background-color: #8d9db6;
-    position: relative;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -47,7 +47,6 @@ footer {
 
 .main-content {
     padding:30px;
-    min-height:90%;
 }
 
 a {
@@ -92,7 +91,8 @@ a {
 }
 
 #logout-prompt {
-    margin-top:150px;
+    margin-top:80px;
+    margin-bottom:50px;
     text-align:center;
 }
 

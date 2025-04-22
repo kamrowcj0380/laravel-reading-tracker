@@ -13,7 +13,7 @@ class ReadingDataController extends Controller
         $allReadingData = ReadingData::where('user_id', auth()->id())->get();
         foreach ($allReadingData as $readingData) {
             $readingData['read-status'] = 'Pages Read:'.(string)$readingData['pages_read']."/".(string)$readingData['pages_in_book'];
-            if ($readingData['pages_read'] == $readingData['pages_in_book']) {
+            if ($readingData['pages_read'] >= $readingData['pages_in_book']) {
                 $readingData['status-color'] = 'green';
             }
             elseif ($readingData['pages_read'] > 0) {
@@ -25,6 +25,8 @@ class ReadingDataController extends Controller
         }
         return view('home', ['allReadingData' => $allReadingData]);
     }
+
+
 
     public function showUpdateScreen(ReadingData $readingData) {
         if (auth()->user()->id !== $readingData['user_id']) {
